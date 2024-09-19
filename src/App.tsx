@@ -2,6 +2,7 @@ import Container from './components/Container';
 import './App.css';
 import Cabecalho from './components/Cabecalho';
 import Titulo from './components/Titulo';
+import Rodape from './components/Rodape';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Container>
         <Titulo>Area Administrativa</Titulo>
       </Container>
+      <Rodape/>
     </>
   );
 }
