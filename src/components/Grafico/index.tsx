@@ -1,33 +1,37 @@
-import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
-import IProfissional from "../../types/IProfissional";
-import IConsulta from "../../types/IConsulta";
-import useDadosGrafico from "./useDadosGrafico";
+import { ResponsiveContainer } from "recharts";
+import { Bar } from "recharts";
+import { XAxis } from "recharts";
+import { YAxis } from "recharts";
+import { BarChart } from "recharts";
 import styled from "styled-components";
+import IConsulta from "../../types/IConsulta";
+import IProfissional from "../../types/IProfissional";
+import useDadosGrafico from "./useDadosGrafico";
 
-interface Props{
+interface Props {
     profissionais: IProfissional[] | null,
     consultas: IConsulta[] | null
 }
+
 interface IDados {
     nome: string,
     consultas: number
 }
 
 const SecaoEstilizada = styled.section`
-    background-color: var(--branco);
-    border-radius: 16px;
+background-color: var(--branco);
+border-radius: 16px;
 `
-function Grafico ({profissionais, consultas} : Props) {
 
-    let dados: Array<IDados> = useDadosGrafico({profissionais, consultas})
-    return(
-
+function Grafico({ profissionais, consultas }: Props) {
+    let dados: Array<IDados> = useDadosGrafico({ profissionais, consultas });
+    return (
         <SecaoEstilizada>
             <ResponsiveContainer width="100%" height={350}>
-                <BarChart 
+                <BarChart
                     layout="vertical"
                     data={dados}
-                    margin={{top: 25, right: 40, left: 40, bottom: 20}}
+                    margin={{ top: 25, right: 40, left: 40, bottom: 20 }}
                 >
                     <XAxis type="number"></XAxis>
                     <YAxis type="category" dataKey="nome"></YAxis>
@@ -38,4 +42,4 @@ function Grafico ({profissionais, consultas} : Props) {
     )
 }
 
-export default Grafico
+export default Grafico;
